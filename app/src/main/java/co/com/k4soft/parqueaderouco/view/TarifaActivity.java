@@ -14,6 +14,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import co.com.k4soft.parqueaderouco.R;
+import co.com.k4soft.parqueaderouco.adapter.TarifaAdapter;
 import co.com.k4soft.parqueaderouco.entidades.Tarifa;
 import co.com.k4soft.parqueaderouco.persistencia.room.DataBaseHelper;
 import co.com.k4soft.parqueaderouco.utilities.ActionBarUtil;
@@ -50,8 +51,9 @@ public class TarifaActivity extends AppCompatActivity {
             for (int i = 0; i < listaTarifas.size(); i++) {
                 tarifasArray[i] = listaTarifas.get(i).getNombre();
             }
-            ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(getApplicationContext(), R.layout.support_simple_spinner_dropdown_item, tarifasArray);
-            listViewTarifas.setAdapter(arrayAdapter);
+            TarifaAdapter tarifaAdapter = new TarifaAdapter(this, listaTarifas);
+            //ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(getApplicationContext(), R.layout.support_simple_spinner_dropdown_item, tarifasArray);
+            listViewTarifas.setAdapter(tarifaAdapter);
         }
     }
 
